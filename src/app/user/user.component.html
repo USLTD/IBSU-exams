@@ -1,0 +1,7 @@
+<div>
+    <h1>Array from parent component</h1>
+    <div *ngFor="let user of users">
+        {{user | json}}
+    </div>
+</div>
+<button (click)="displayParents()">Display Users</button>

@@ -1,0 +1,43 @@
+<div *ngFor="let user of users">
+  <div *ngIf="user.age > 20">
+    {{ user | json }}
+  </div>
+</div>
+<app-user [users]="parentUsers" (childrenOutput)="addChildren($event)"></app-user>
+<div>
+  <h1>Array from child component</h1>
+  <div *ngFor="let child of children">
+    {{child | json}}
+  </div>
+</div>
+<form class="needs-validation" novalidate [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="first-name">First Name: </label>
+    <input class="form-control" id="first-name" type="text" formControlName="firstname">
+  </div>
+  
+  <div class="form-group">
+  <label for="last-name">Last Name: </label>
+  <input class="form-control" id="last-name" type="text" formControlName="lastname">
+</div>
+
+  <div class="form-group">
+  <label for="date-of-birth">Date of Birth: </label>
+  <input class="form-control" id="date-of-birth" type="date" formControlName="dateofbirth">
+  </div>
+
+  <div class="form-group">
+  <label for="phone-input">Phone: </label>
+  <input class="form-control" id="phone-input" type="tel" formControlName="phonenumber">
+  </div>
+
+  <div class="form-group">
+  <label for="email-input">Email: </label>
+  <input class="form-control" id="email-input" type="email" formControlName="email">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+<router-outlet />
